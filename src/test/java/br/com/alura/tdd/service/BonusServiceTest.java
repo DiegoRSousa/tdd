@@ -17,8 +17,9 @@ class BonusServiceTest {
     void test01() {
         var bonusService = new BonusService();
         var funcionario = new Funcionario("Pedro", LocalDate.now(), new BigDecimal("10500"), Desempenho.A_DESEJAR);
-        var bonus = bonusService.calcularBonus(funcionario);
-        assertEquals(new BigDecimal("0.00"), bonus);
+
+        assertThrows(IllegalArgumentException.class, () -> bonusService.calcularBonus(funcionario));
+
     }
 
     @Test
